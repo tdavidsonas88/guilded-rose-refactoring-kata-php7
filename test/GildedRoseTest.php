@@ -9,16 +9,21 @@ use \PHPUnit\Framework\TestCase;
  * @package App
  */
 class GildedRoseTest extends TestCase {
+
+
+    private function runUpdateQuality(string $name, int $sellIn, int $quality)
+    {
+        /** @var Item[] $items */
+        $items = [new Item($name, $sellIn, $quality)];
+        $gildedRoseApp = new GildedRose($items);
+        $gildedRoseApp->updateQuality();
+        return $items[0]->__toString();
+    }
+    
     // At the end of each day our system lowers both values for every item
     function testAtTheEndOfEachDaySystemLowersValuesForEveryItem() {
-        $items = array(new Item("foo", 2, 5));
-        $gildedRose = new GildedRose($items);
-        $gildedRose->updateQuality();
-        $this->assertEquals("foo", $items[0]->name);
-        $this->assertEquals(1, $items[0]->sell_in);
-        $this->assertEquals(4, $items[0]->quality);
-
-        $this->assertSame('foo, 1, 4', $items[0]->__toString());
+        $itemString = $this->runUpdateQuality('foo', 2, 5);
+        $this->assertSame('foo, 1, 4', $itemString);
     }
     // - Once the sell by date has passed, Quality degrades twice as fast
     function testOnceTheSellByDateHasPassedQualityDegradesTwiceAsFast(){
