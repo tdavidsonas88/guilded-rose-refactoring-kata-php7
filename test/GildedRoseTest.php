@@ -27,14 +27,14 @@ class GildedRoseTest extends TestCase {
     }
     // - Once the sell by date has passed, Quality degrades twice as fast
     function testOnceTheSellByDateHasPassedQualityDegradesTwiceAsFast(){
-        $items = array(new Item("foo", 2, 5));
-        $gildedRose = new GildedRose($items);
-        $gildedRose->updateQuality();
-        $this->assertEquals(4, $items[0]->quality);
-        $gildedRose->updateQuality();
-        $this->assertEquals(3, $items[0]->quality);
-        $gildedRose->updateQuality();
-        $this->assertEquals(1, $items[0]->quality);
+        $itemString = $this->runUpdateQuality('foo', 2, 5);
+        $this->assertSame('foo, 1, 4', $itemString);
+        $itemString = $this->runUpdateQuality('foo', 1, 4);
+        $this->assertSame('foo, 0, 3', $itemString);
+        $itemString = $this->runUpdateQuality('foo', 0, 3);
+        $this->assertSame('foo, -1, 1', $itemString);
+        $itemString = $this->runUpdateQuality('foo', -1, 1);
+        $this->assertSame('foo, -2, 0', $itemString);
     }
     // The Quality of an item is never negative
     function testTheQualityOfItemIsNeverNegative(){
