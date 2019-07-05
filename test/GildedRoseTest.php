@@ -17,6 +17,8 @@ class GildedRoseTest extends TestCase {
         $this->assertEquals("foo", $items[0]->name);
         $this->assertEquals(1, $items[0]->sell_in);
         $this->assertEquals(4, $items[0]->quality);
+
+        $this->assertSame('foo, 1, 4', $items[0]->__toString());
     }
     // - Once the sell by date has passed, Quality degrades twice as fast
     function testOnceTheSellByDateHasPassedQualityDegradesTwiceAsFast(){
