@@ -13,28 +13,6 @@ final class GildedRose {
     /**
      * @param $item
      */
-    private static function foo($item): void
-    {
-        if ($item->quality > 0) {
-            if ($item->name == 'Sulfuras, Hand of Ragnaros') {
-                $item->quality = 80;
-            } else {
-                $item->quality = $item->quality - 1;
-            }
-        }
-
-        if ($item->name != 'Sulfuras, Hand of Ragnaros') {
-            $item->sell_in = $item->sell_in - 1;
-        }
-
-        if ($item->sell_in < 0) {
-            if ($item->quality > 0) {
-                if ($item->name != 'Sulfuras, Hand of Ragnaros') {
-                    $item->quality = $item->quality - 1;
-                }
-            }
-        }
-    }
 
     public function updateQuality() {
         foreach ($this->items as $item) {
@@ -85,9 +63,45 @@ final class GildedRose {
                 }
             } else {
                 if ($item->name == 'Sulfuras, Hand of Ragnaros') {
-                    self::foo($item);
+                    if ($item->quality > 0) {
+                        if ($item->name == 'Sulfuras, Hand of Ragnaros') {
+                            $item->quality = 80;
+                        } else {
+                            $item->quality = $item->quality - 1;
+                        }
+                    }
+
+                    if ($item->name != 'Sulfuras, Hand of Ragnaros') {
+                        $item->sell_in = $item->sell_in - 1;
+                    }
+
+                    if ($item->sell_in < 0) {
+                        if ($item->quality > 0) {
+                            if ($item->name != 'Sulfuras, Hand of Ragnaros') {
+                                $item->quality = $item->quality - 1;
+                            }
+                        }
+                    }
                 } else {
-                    self::foo($item);
+                    if ($item->quality > 0) {
+                        if ($item->name == 'Sulfuras, Hand of Ragnaros') {
+                            $item->quality = 80;
+                        } else {
+                            $item->quality = $item->quality - 1;
+                        }
+                    }
+
+                    if ($item->name != 'Sulfuras, Hand of Ragnaros') {
+                        $item->sell_in = $item->sell_in - 1;
+                    }
+
+                    if ($item->sell_in < 0) {
+                        if ($item->quality > 0) {
+                            if ($item->name != 'Sulfuras, Hand of Ragnaros') {
+                                $item->quality = $item->quality - 1;
+                            }
+                        }
+                    }
                 }
             }
 
