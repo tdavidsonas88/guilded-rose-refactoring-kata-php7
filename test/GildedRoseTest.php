@@ -114,12 +114,12 @@ class GildedRoseTest extends TestCase {
         $this->assertEquals(50, $items[1]->quality);
         $this->assertEquals(80, $items[2]->quality);
         $this->assertEquals(50, $items[3]->quality);
-        $this->assertEquals(49, $items[4]->quality);
+        $this->assertEquals(48, $items[4]->quality);
         $gildedRose->updateQuality();
         $this->assertEquals(50, $items[1]->quality);
         $this->assertEquals(80, $items[2]->quality);
         $this->assertEquals(50, $items[3]->quality);
-        $this->assertEquals(48, $items[4]->quality);
+        $this->assertEquals(46, $items[4]->quality);
     }
     // - "Sulfuras", being a legendary item, never has to be sold or decreases in Quality
     function testSulfurasNeverSoldOrDecreaseInQuality(){

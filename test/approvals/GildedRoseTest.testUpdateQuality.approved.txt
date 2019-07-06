@@ -121,9 +121,9 @@
 [Conjured, -1, 0] => Conjured, -2, 0
 [Conjured, -1, 1] => Conjured, -2, 0
 [Conjured, -1, 2] => Conjured, -2, 0
-[Conjured, -1, 6] => Conjured, -2, 4
-[Conjured, -1, 49] => Conjured, -2, 47
-[Conjured, -1, 50] => Conjured, -2, 48
+[Conjured, -1, 6] => Conjured, -2, 2
+[Conjured, -1, 49] => Conjured, -2, 45
+[Conjured, -1, 50] => Conjured, -2, 46
 [Conjured, 0, 0] => Conjured, -1, 0
 [Conjured, 0, 1] => Conjured, -1, 0
 [Conjured, 0, 2] => Conjured, -1, 0
@@ -145,6 +145,6 @@
 [Conjured, 11, 0] => Conjured, 10, 0
 [Conjured, 11, 1] => Conjured, 10, 0
 [Conjured, 11, 2] => Conjured, 10, 0
-[Conjured, 11, 6] => Conjured, 10, 3
+[Conjured, 11, 6] => Conjured, 10, 4
 [Conjured, 11, 49] => Conjured, 10, 47
 [Conjured, 11, 50] => Conjured, 10, 48
