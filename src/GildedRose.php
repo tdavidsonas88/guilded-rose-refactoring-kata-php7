@@ -16,7 +16,7 @@ final class GildedRose {
     private static function foo($item): void
     {
         if ($item->quality > 0) {
-            if ($item->name == $item->name == 'Sulfuras, Hand of Ragnaros') {
+            if ($item->name == 'Sulfuras, Hand of Ragnaros') {
                 $item->quality = 80;
             } else {
                 $item->quality = $item->quality - 1;
