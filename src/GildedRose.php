@@ -33,10 +33,8 @@ final class GildedRose {
                 default:
                     $item = new Unknown($item);
             }
-
             $item->doUpdateQuality();
         }
     }
-
 }
 

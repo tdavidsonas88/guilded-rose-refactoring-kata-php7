@@ -9,10 +9,20 @@
 namespace App;
 
 
+/**
+ * Just for clarification,
+ * an item can never have its Quality increase above 50,
+ * however "Sulfuras" is a legendary item and as such its Quality is 80 and it never alters.
+ *
+ * Class Sulfuras
+ * @package App
+ */
 class Sulfuras implements ItemInterface
 {
+    const SULFURAS_VALUE = 80;
+
     /** @var Item */
-    private $item;
+    private  $item;
 
     /**
      * Sulfuras constructor.
@@ -25,8 +35,6 @@ class Sulfuras implements ItemInterface
 
     public function doUpdateQuality()
     {
-        if ($this->item->quality > 0) {
-            $this->item->quality = 80;
-        }
+        $this->item->quality = self::SULFURAS_VALUE;
     }
 }
