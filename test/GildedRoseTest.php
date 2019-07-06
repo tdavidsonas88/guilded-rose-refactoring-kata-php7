@@ -197,5 +197,16 @@ class GildedRoseTest extends TestCase {
 
         $gildedRose->updateQuality();
         $this->assertEquals(26, $items[0]->quality);
+
+        $gildedRose->updateQuality();
+        $this->assertEquals(22, $items[0]->quality);
+
+        $items = array(
+            new Item("Conjured", 0, 3)
+        );
+
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals(0, $items[0]->quality);
     }
 }
