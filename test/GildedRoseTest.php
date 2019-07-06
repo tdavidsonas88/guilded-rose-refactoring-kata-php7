@@ -21,7 +21,7 @@ class GildedRoseTest extends TestCase {
             'Sulfuras',
             'Conjured'];
         $sellIns = [-1, 0, 5, 10, 11];
-        $qualitys = [0, 1, 2, 6, 49, 50];
+        $qualitys = [0, 1, 2, 3, 6, 49, 50];
 
         CombinationApprovals::verifyAllCombinations3(function($a, $b, $c) {
             return $this->runUpdateQuality($a, $b, $c);
