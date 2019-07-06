@@ -20,71 +20,24 @@ final class GildedRose {
 
     public function updateQuality() {
         foreach ($this->items as $item) {
-            $this->doUpdateQuality($item);
+
+            switch ($item->name) {
+                case self::AGED_BRIE:
+                    $item = new AgedBrie($item);
+                    break;
+                case self::BACKSTAGE_PASSES:
+                    $item = new BackstagePasses($item);
+                    break;
+                case self::SULFURAS:
+                    $item = new Sulfuras($item);
+                    break;
+                default:
+                    $item = new Unknown($item);
+            }
+
+            $item->doUpdateQuality();
         }
     }
 
-    /**
-     * @param $item
-     */
-    private function doUpdateQuality($item): void
-    {
-        switch ($item->name) {
-            case self::AGED_BRIE :
-                if ($item->quality < 50) {
-                    $item->quality = $item->quality + 1;
-                }
-                $item->sell_in = $item->sell_in - 1;
-
-                if ($item->sell_in < 0) {
-
-                    if ($item->quality < 50) {
-                        $item->quality = $item->quality + 1;
-                    }
-                }
-                break;
-            case self::BACKSTAGE_PASSES:
-               if ($item->quality < 50) {
-                    $item->quality = $item->quality + 1;
-                    if ($item->sell_in < 11) {
-                        if ($item->quality < 50) {
-                            $item->quality = $item->quality + 1;
-                        }
-                    }
-                    if ($item->sell_in < 6) {
-                        if ($item->quality < 50) {
-                            $item->quality = $item->quality + 1;
-                        }
-                    }
-                }
-
-                $item->sell_in = $item->sell_in - 1;
-
-                if ($item->sell_in < 0) {
-                    $item->quality = $item->quality - $item->quality;
-                }
-                break;
-            case self::SULFURAS:
-                if ($item->quality > 0) {
-                    $item->quality = 80;
-                }
-                break;
-            default:
-                if ($item->quality > 0) {
-                    $item->quality = $item->quality - 1;
-                }
-
-                $item->sell_in = $item->sell_in - 1;
-
-                if ($item->sell_in < 0) {
-                    if ($item->quality > 0) {
-                        if (true) {
-                            $item->quality = $item->quality - 1;
-                        }
-                    }
-                }
-        }
-
-    }
 }
 
