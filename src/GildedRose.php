@@ -10,6 +10,32 @@ final class GildedRose {
         $this->items = $items;
     }
 
+    /**
+     * @param $item
+     */
+    private static function foo($item): void
+    {
+        if ($item->quality > 0) {
+            if ($item->name == $item->name == 'Sulfuras, Hand of Ragnaros') {
+                $item->quality = 80;
+            } else {
+                $item->quality = $item->quality - 1;
+            }
+        }
+
+        if ($item->name != 'Sulfuras, Hand of Ragnaros') {
+            $item->sell_in = $item->sell_in - 1;
+        }
+
+        if ($item->sell_in < 0) {
+            if ($item->quality > 0) {
+                if ($item->name != 'Sulfuras, Hand of Ragnaros') {
+                    $item->quality = $item->quality - 1;
+                }
+            }
+        }
+    }
+
     public function updateQuality() {
         foreach ($this->items as $item) {
             $this->doUpdateQuality($item);
@@ -58,24 +84,10 @@ final class GildedRose {
                     $item->quality = $item->quality - $item->quality;
                 }
             } else {
-                if ($item->quality > 0) {
-                    if ($item->name != 'Sulfuras, Hand of Ragnaros') {
-                        $item->quality = $item->quality - 1;
-                    } else {
-                        $item->quality = 80;
-                    }
-                }
-
-                if ($item->name != 'Sulfuras, Hand of Ragnaros') {
-                    $item->sell_in = $item->sell_in - 1;
-                }
-
-                if ($item->sell_in < 0) {
-                    if ($item->quality > 0) {
-                        if ($item->name != 'Sulfuras, Hand of Ragnaros') {
-                            $item->quality = $item->quality - 1;
-                        }
-                    }
+                if ($item->name == 'Sulfuras, Hand of Ragnaros') {
+                    self::foo($item);
+                } else {
+                    self::foo($item);
                 }
             }
 
