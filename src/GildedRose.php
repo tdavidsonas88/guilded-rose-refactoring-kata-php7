@@ -4,6 +4,10 @@ namespace App;
 
 final class GildedRose {
 
+    const AGED_BRIE = 'Aged Brie';
+    const BACKSTAGE_PASSES = 'Backstage passes to a TAFKAL80ETC concert';
+    const SULFURAS = 'Sulfuras, Hand of Ragnaros';
+
     private $items = [];
 
     public function __construct($items) {
@@ -26,7 +30,7 @@ final class GildedRose {
     private function doUpdateQuality($item): void
     {
         switch ($item->name) {
-            case  'Aged Brie':
+            case self::AGED_BRIE :
                 if ($item->quality < 50) {
                     $item->quality = $item->quality + 1;
                 }
@@ -39,7 +43,7 @@ final class GildedRose {
                     }
                 }
                 break;
-            case 'Backstage passes to a TAFKAL80ETC concert':
+            case self::BACKSTAGE_PASSES:
                if ($item->quality < 50) {
                     $item->quality = $item->quality + 1;
                     if ($item->sell_in < 11) {
@@ -60,7 +64,7 @@ final class GildedRose {
                     $item->quality = $item->quality - $item->quality;
                 }
                 break;
-            case 'Sulfuras, Hand of Ragnaros':
+            case self::SULFURAS:
                 if ($item->quality > 0) {
                     $item->quality = 80;
                 }
