@@ -68,13 +68,6 @@ final class GildedRose {
                 if ($item->quality > 0) {
                     $item->quality = 80;
                 }
-                if ($item->sell_in < 0) {
-                    if ($item->quality > 0) {
-                        if ($item->name != 'Sulfuras, Hand of Ragnaros') {
-                            $item->quality = $item->quality - 1;
-                        }
-                    }
-                }
                 break;
             default:
                 if ($item->quality > 0) {
