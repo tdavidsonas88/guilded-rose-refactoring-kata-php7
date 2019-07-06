@@ -15,7 +15,7 @@ class GildedRoseTest extends TestCase {
     public function testUpdateQuality()
     {
         $names = ['foo', 'Aged Brie', 'Backstage passes to a TAFKAL80ETC concert', 'Sulfuras, Hand of Ragnaros'];
-        $sellIns = [-1, 0, 11];
+        $sellIns = [-1, 0, 5, 10, 11];
         $qualitys = [0, 1, 2, 6, 49, 50];
 
         CombinationApprovals::verifyAllCombinations3(function($a, $b, $c) {
