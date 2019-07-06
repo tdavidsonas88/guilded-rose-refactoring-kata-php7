@@ -27,20 +27,21 @@ class Conjured implements ItemInterface
      */
     public function doUpdateQuality()
     {
-        if ($this->item->quality > 1) {
-            $this->item->quality -= 2;
-        } else if($this->item->quality == 1) {
-            $this->item->quality -= 1;
-        }
+        $this->degradeInQualityTwiceAsFast();
 
         $this->item->sell_in -= 1;
 
         if ($this->item->sell_in < 0) {
-            if ($this->item->quality > 1) {
-                $this->item->quality -= 2;
-            } else if($this->item->quality == 1){
-                $this->item->quality -= 1;
-            }
+            $this->degradeInQualityTwiceAsFast();
+        }
+    }
+
+    private function degradeInQualityTwiceAsFast(): void
+    {
+        if ($this->item->quality > 1) {
+            $this->item->quality -= 2;
+        } else if ($this->item->quality == 1) {
+            $this->item->quality -= 1;
         }
     }
 }
