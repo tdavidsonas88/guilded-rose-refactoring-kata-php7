@@ -31,8 +31,9 @@ final class GildedRose {
                 case self::SULFURAS:
                     $item = new Sulfuras($item);
                     break;
-//              "Conjured" items degrade in Quality twice as fast as normal items
-
+                case self::CONJURED:
+                    $item = new Conjured($item);
+                    break;
                 default:
                     $item = new Unknown($item);
             }

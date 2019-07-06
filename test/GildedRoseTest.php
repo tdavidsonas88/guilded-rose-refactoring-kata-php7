@@ -53,11 +53,6 @@ class GildedRoseTest extends TestCase {
         ];
     }
 
-    // At the end of each day our system lowers both values for every item
-    function testAtTheEndOfEachDaySystemLowersValuesForEveryItem() {
-        $itemString = $this->runUpdateQuality('foo', 2, 5);
-        $this->assertSame('foo, 1, 4', $itemString);
-    }
     // - Once the sell by date has passed, Quality degrades twice as fast
     /**
      * @dataProvider getTestsData
@@ -69,6 +64,12 @@ class GildedRoseTest extends TestCase {
         $itemString = $this->runUpdateQuality($name, $sellIn, $quality);
         $itemValues = explode(',', $itemString);
         $this->assertSame($name.', '. strval($sellIn - 1) .', '. strval($quality -2), $itemString);
+    }
+
+    // At the end of each day our system lowers both values for every item
+    function testAtTheEndOfEachDaySystemLowersValuesForEveryItem() {
+        $itemString = $this->runUpdateQuality('foo', 2, 5);
+        $this->assertSame('foo, 1, 4', $itemString);
     }
     // The Quality of an item is never negative
     function testTheQualityOfItemIsNeverNegative(){

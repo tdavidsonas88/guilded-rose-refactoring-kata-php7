@@ -127,9 +127,9 @@
 [Conjured, 0, 0] => Conjured, -1, 0
 [Conjured, 0, 1] => Conjured, -1, 0
 [Conjured, 0, 2] => Conjured, -1, 0
-[Conjured, 0, 6] => Conjured, -1, 4
-[Conjured, 0, 49] => Conjured, -1, 47
-[Conjured, 0, 50] => Conjured, -1, 48
+[Conjured, 0, 6] => Conjured, -1, 2
+[Conjured, 0, 49] => Conjured, -1, 45
+[Conjured, 0, 50] => Conjured, -1, 46
 [Conjured, 5, 0] => Conjured, 4, 0
 [Conjured, 5, 1] => Conjured, 4, 0
 [Conjured, 5, 2] => Conjured, 4, 0
