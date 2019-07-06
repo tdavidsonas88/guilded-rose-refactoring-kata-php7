@@ -140,7 +140,7 @@
 [Conjured, 10, 1] => Conjured, 9, 0
 [Conjured, 10, 2] => Conjured, 9, 0
 [Conjured, 10, 6] => Conjured, 9, 4
-[Conjured, 10, 49] => Conjured, 9, 4
+[Conjured, 10, 49] => Conjured, 9, 47
 [Conjured, 10, 50] => Conjured, 9, 48
 [Conjured, 11, 0] => Conjured, 10, 0
 [Conjured, 11, 1] => Conjured, 10, 0
