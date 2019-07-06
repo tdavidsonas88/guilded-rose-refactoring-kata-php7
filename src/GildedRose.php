@@ -25,22 +25,22 @@ final class GildedRose {
      */
     private function doUpdateQuality($item): void
     {
-        if ($item->name =='Aged Brie') {
-
-            if ($item->quality < 50) {
-                $item->quality = $item->quality + 1;
-            }
-
-            $item->sell_in = $item->sell_in - 1;
-
-            if ($item->sell_in < 0) {
-
+        switch ($item->name) {
+            case  'Aged Brie':
                 if ($item->quality < 50) {
                     $item->quality = $item->quality + 1;
                 }
-            }
-        } else if ($item->name == 'Backstage passes to a TAFKAL80ETC concert') {
-                if ($item->quality < 50) {
+                $item->sell_in = $item->sell_in - 1;
+
+                if ($item->sell_in < 0) {
+
+                    if ($item->quality < 50) {
+                        $item->quality = $item->quality + 1;
+                    }
+                }
+                break;
+            case 'Backstage passes to a TAFKAL80ETC concert':
+               if ($item->quality < 50) {
                     $item->quality = $item->quality + 1;
                     if ($item->sell_in < 11) {
                         if ($item->quality < 50) {
@@ -59,7 +59,8 @@ final class GildedRose {
                 if ($item->sell_in < 0) {
                     $item->quality = $item->quality - $item->quality;
                 }
-        } else if ($item->name == 'Sulfuras, Hand of Ragnaros') {
+                break;
+            case 'Sulfuras, Hand of Ragnaros':
                 if ($item->quality > 0) {
                     $item->quality = 80;
                 }
@@ -70,20 +71,21 @@ final class GildedRose {
                         }
                     }
                 }
-        } else {
-            if ($item->quality > 0) {
-                $item->quality = $item->quality - 1;
-            }
-
-            $item->sell_in = $item->sell_in - 1;
-
-            if ($item->sell_in < 0) {
+                break;
+            default:
                 if ($item->quality > 0) {
-                    if (true) {
-                        $item->quality = $item->quality - 1;
+                    $item->quality = $item->quality - 1;
+                }
+
+                $item->sell_in = $item->sell_in - 1;
+
+                if ($item->sell_in < 0) {
+                    if ($item->quality > 0) {
+                        if (true) {
+                            $item->quality = $item->quality - 1;
+                        }
                     }
                 }
-            }
         }
 
     }
