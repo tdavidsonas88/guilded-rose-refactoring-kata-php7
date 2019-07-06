@@ -20,7 +20,6 @@ final class GildedRose {
 
     public function updateQuality() {
         foreach ($this->items as $item) {
-
             switch ($item->name) {
                 case self::AGED_BRIE:
                     $item = new AgedBrie($item);
