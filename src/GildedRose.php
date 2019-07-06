@@ -7,6 +7,7 @@ final class GildedRose {
     const AGED_BRIE = 'Aged Brie';
     const BACKSTAGE_PASSES = 'Backstage passes to a TAFKAL80ETC concert';
     const SULFURAS = 'Sulfuras, Hand of Ragnaros';
+    const CONJURED = 'Conjured';
 
     private $items = [];
 
@@ -30,6 +31,8 @@ final class GildedRose {
                 case self::SULFURAS:
                     $item = new Sulfuras($item);
                     break;
+//              "Conjured" items degrade in Quality twice as fast as normal items
+
                 default:
                     $item = new Unknown($item);
             }
