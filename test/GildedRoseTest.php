@@ -17,8 +17,8 @@ class GildedRoseTest extends TestCase {
         $names = [
             'foo',
             'Aged Brie',
-            'Backstage passes to a TAFKAL80ETC concert',
-            'Sulfuras, Hand of Ragnaros',
+            'Backstage passes',
+            'Sulfuras',
             'Conjured'];
         $sellIns = [-1, 0, 5, 10, 11];
         $qualitys = [0, 1, 2, 6, 49, 50];
@@ -103,9 +103,9 @@ class GildedRoseTest extends TestCase {
         $items = array(
             new Item("foo", 2, 50),
             new Item("Aged Brie", 2, 50),
-            new Item("Sulfuras, Hand of Ragnaros", 2, 80),
-            new Item("Backstage passes to a TAFKAL80ETC concert", 2, 50),
-            new Item("Conjured Mana Cake", 2, 50),
+            new Item("Sulfuras", 2, 80),
+            new Item("Backstage passes", 2, 50),
+            new Item("Conjured", 2, 50),
         );
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
@@ -123,7 +123,7 @@ class GildedRoseTest extends TestCase {
     // - "Sulfuras", being a legendary item, never has to be sold or decreases in Quality
     function testSulfurasNeverSoldOrDecreaseInQuality(){
         $items = array(
-            new Item("Sulfuras, Hand of Ragnaros", 2, 30)
+            new Item("Sulfuras", 2, 30)
         );
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
@@ -141,7 +141,7 @@ class GildedRoseTest extends TestCase {
 
     function testBackstagePasses(){
         $items = array(
-            new Item("Backstage passes to a TAFKAL80ETC concert", 11, 30),
+            new Item("Backstage passes", 11, 30),
         );
         $gildedRose = new GildedRose($items);
         // 11
@@ -188,7 +188,7 @@ class GildedRoseTest extends TestCase {
     // 	- "Conjured" items degrade in Quality twice as fast as normal items
     function testConjuredItemsDegradeInQualityTwiceAsFast(){
         $items = array(
-            new Item("Conjured Mana Cake", 2, 30)
+            new Item("Conjured", 2, 30)
         );
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
