@@ -28,14 +28,10 @@ class AgedBrie implements ItemInterface
         if ($this->item->quality < 50) {
             $this->item->quality += 1;
         }
-
         $this->item->sell_in -= 1;
-
         // degrades twice as fast in quality when < 0
         if ($this->item->sell_in < 0 && $this->item->quality < 50) {
             $this->item->quality += 1;
         }
-
-
     }
 }

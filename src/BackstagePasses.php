@@ -28,22 +28,18 @@ class BackstagePasses implements ItemInterface
         if ($this->item->quality < 50) {
             $this->item->quality += 1;
             if ($this->item->sell_in < 11) {
-                if ($this->item->quality < 50) {
-                    $this->item->quality += 1;
-                }
+               $this->item->quality += 1;
             }
             if ($this->item->sell_in < 6) {
-                if ($this->item->quality < 50) {
-                    $this->item->quality += 1;
-                }
+                $this->item->quality += 1;
             }
         }
 
         $this->item->sell_in -= 1;
 
         if ($this->item->sell_in < 0) {
-            // todo: kazkaip keistai kodas atrodo!
-            $this->item->quality = $this->item->quality - $this->item->quality;
+            // after concert drops to zero
+            $this->item->quality = 0;
         }
     }
 }
