@@ -12,7 +12,7 @@ namespace App\Items;
 use App\Item;
 use App\ItemInterface;
 
-abstract class GildedRoseItem
+abstract class GildedRoseItem implements ItemInterface
 {
     /** @var Item */
     protected $item;
