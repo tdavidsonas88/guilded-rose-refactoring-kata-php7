@@ -18,7 +18,7 @@ use App\Items\GildedRoseItem;
  * Class Sulfuras
  * @package App
  */
-class Sulfuras extends GildedRoseItem implements ItemInterface
+class Sulfuras extends GildedRoseItem
 {
     const SULFURAS_VALUE = 80;
 

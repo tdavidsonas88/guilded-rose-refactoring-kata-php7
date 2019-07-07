@@ -11,7 +11,7 @@ namespace App;
 
 use App\Items\GildedRoseItem;
 
-class Conjured extends GildedRoseItem implements ItemInterface
+class Conjured extends GildedRoseItem
 {
     /**
      * "Conjured" items degrade in Quality twice as fast as normal items

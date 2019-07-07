@@ -11,7 +11,7 @@ namespace App;
 
 use App\Items\GildedRoseItem;
 
-class BackstagePasses extends GildedRoseItem implements ItemInterface
+class BackstagePasses extends GildedRoseItem
 {
 
     public function doUpdateQuality()

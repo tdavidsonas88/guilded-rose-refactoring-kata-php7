@@ -11,7 +11,7 @@ namespace App;
 
 use App\Items\GildedRoseItem;
 
-class Unknown extends GildedRoseItem implements ItemInterface
+class Unknown extends GildedRoseItem
 {
 
     public function doUpdateQuality()
