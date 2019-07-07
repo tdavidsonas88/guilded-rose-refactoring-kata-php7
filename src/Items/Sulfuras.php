@@ -7,6 +7,7 @@
  */
 
 namespace App;
+use App\Items\GildedRoseItem;
 
 
 /**
@@ -17,24 +18,12 @@ namespace App;
  * Class Sulfuras
  * @package App
  */
-class Sulfuras implements ItemInterface
+class Sulfuras extends GildedRoseItem implements ItemInterface
 {
     const SULFURAS_VALUE = 80;
 
-    /** @var Item */
-    private  $item;
-
-    /**
-     * Sulfuras constructor.
-     * @param Item $item
-     */
-    public function __construct(Item $item)
-    {
-        $this->item = $item;
-    }
-
     public function doUpdateQuality()
     {
-        $this->item->quality = self::SULFURAS_VALUE;
+        $this->getItem()->quality = self::SULFURAS_VALUE;
     }
 }

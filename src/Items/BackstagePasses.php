@@ -9,33 +9,24 @@
 namespace App;
 
 
-class BackstagePasses implements ItemInterface
-{
-    /** @var Item */
-    private $item;
+use App\Items\GildedRoseItem;
 
-    /**
-     * BackstagePasses constructor.
-     * @param Item $item
-     */
-    public function __construct(Item $item)
-    {
-        $this->item = $item;
-    }
+class BackstagePasses extends GildedRoseItem implements ItemInterface
+{
 
     public function doUpdateQuality()
     {
         if ($this->item->quality < 50) {
-            $this->item->quality += 1;
+            $this->qualityUp();
             if ($this->item->sell_in < 11) {
-               $this->item->quality += 1;
+                $this->qualityUp();
             }
             if ($this->item->sell_in < 6) {
-                $this->item->quality += 1;
+                $this->qualityUp();;
             }
         }
 
-        $this->item->sell_in -= 1;
+        $this->sellInDown();
 
         if ($this->item->sell_in < 0) {
             // after concert drops to zero

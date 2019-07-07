@@ -9,29 +9,20 @@
 namespace App;
 
 
-class AgedBrie implements ItemInterface
-{
-    /** @var Item */
-    private $item;
+use App\Items\GildedRoseItem;
 
-    /**
-     * AgedBrie constructor.
-     * @param Item $item
-     */
-    public function __construct(Item $item)
-    {
-        $this->item = $item;
-    }
+class AgedBrie extends GildedRoseItem implements ItemInterface
+{
 
     public function doUpdateQuality()
     {
         if ($this->item->quality < 50) {
-            $this->item->quality += 1;
+            $this->qualityUp();
         }
-        $this->item->sell_in -= 1;
+        $this->sellInDown();
         // degrades twice as fast in quality when < 0
         if ($this->item->sell_in < 0 && $this->item->quality < 50) {
-            $this->item->quality += 1;
+            $this->qualityUp();
         }
     }
 }

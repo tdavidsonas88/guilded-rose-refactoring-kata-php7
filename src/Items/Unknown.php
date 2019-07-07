@@ -9,18 +9,10 @@
 namespace App;
 
 
-class Unknown implements ItemInterface
-{
-    private $item;
+use App\Items\GildedRoseItem;
 
-    /**
-     * Unknown constructor.
-     * @param $item
-     */
-    public function __construct($item)
-    {
-        $this->item = $item;
-    }
+class Unknown extends GildedRoseItem implements ItemInterface
+{
 
     public function doUpdateQuality()
     {

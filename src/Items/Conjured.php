@@ -9,19 +9,10 @@
 namespace App;
 
 
-class Conjured implements ItemInterface
+use App\Items\GildedRoseItem;
+
+class Conjured extends GildedRoseItem implements ItemInterface
 {
-    private $item;
-
-    /**
-     * Conjured constructor.
-     * @param $item
-     */
-    public function __construct($item)
-    {
-        $this->item = $item;
-    }
-
     /**
      * "Conjured" items degrade in Quality twice as fast as normal items
      */
@@ -29,19 +20,23 @@ class Conjured implements ItemInterface
     {
         $this->degradeInQualityTwiceAsFast();
 
-        $this->item->sell_in -= 1;
+        $this->sellInDown();
 
         if ($this->item->sell_in < 0) {
             $this->degradeInQualityTwiceAsFast();
         }
     }
 
+    /**
+     * @param Item $this->item
+     */
     private function degradeInQualityTwiceAsFast(): void
     {
         if ($this->item->quality > 1) {
-            $this->item->quality -= 2;
+            $this->qualityDown();
+            $this->qualityDown();
         } else if ($this->item->quality == 1) {
-            $this->item->quality -= 1;
+            $this->qualityDown();
         }
     }
 }
